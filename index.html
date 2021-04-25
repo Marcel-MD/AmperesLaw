@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ampere's Law</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body onload="load()">
+    <h1>Verifying Ampere's Law</h1>
+    <div id="myform">
+      <p>Please enter the required data inputs:</p>
+      <table class="inputTable">
+        <tr>
+          <td>Experiment nr.</td>
+          <td><input type="text" id="Nr" /></td>
+        </tr>
+        <tr>
+          <td>Force (dF) =</td>
+          <td><input type="text" id="dF" required /></td>
+        </tr>
+        <tr>
+          <td>Intensity (I) =</td>
+          <td><input type="text" id="I" required /></td>
+        </tr>
+        <tr>
+          <td>Length (dl) =</td>
+          <td><input type="text" id="dl" required /></td>
+        </tr>
+      </table>
+
+      <p>
+        <input
+          class="button"
+          class="special"
+          type="button"
+          id="add"
+          value="Calculate"
+          onclick="Javascript:addRow()"
+        />
+      </p>
+      <!-- &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Calculate"> -->
+      <p id="output_text" />
+      <script type="text/javascript"></script>
+      <script type="text/javascript" src="table.js"></script>
+    </div>
+    <div id="mydata">
+      <p>Current data in the system:</p>
+      <table id="myTableData">
+        <tr>
+          <th>&nbsp;</th>
+          <th>Nr.</th>
+          <th>dF</th>
+          <th>I</th>
+          <th>dl</th>
+          <th>B</th>
+        </tr>
+      </table>
+      &nbsp;
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
