@@ -3,8 +3,9 @@
   <head>
     <title>Ampere's Law</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.ico" />
   </head>
-  <body onload="load()">
+  <body>
     <h1>Verifying Ampere's Law</h1>
     <div id="myform">
       <p>Please enter the required data inputs:</p>
@@ -37,13 +38,9 @@
           onclick="Javascript:addRow()"
         />
       </p>
-      <!-- &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Calculate"> -->
-      <p id="output_text" />
-      <script type="text/javascript"></script>
-      <script type="text/javascript" src="table.js"></script>
     </div>
     <div id="mydata">
-      <p>Current data in the system:</p>
+      <p id="outputText">Current data in the system:</p>
       <table id="myTableData">
         <tr>
           <th>&nbsp;</th>

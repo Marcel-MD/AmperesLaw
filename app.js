@@ -18,6 +18,9 @@ function addRow() {
     row.insertCell(3).innerHTML = myIntensity;
     row.insertCell(4).innerHTML = myLength;
     row.insertCell(5).innerHTML = myB;
+    averageB();
+  } else {
+    alert("Please provide meaningful data.");
   }
 }
 
@@ -25,4 +28,22 @@ function deleteRow(obj) {
   var index = obj.parentNode.parentNode.rowIndex;
   var table = document.getElementById("myTableData");
   table.deleteRow(index);
+}
+
+// Mai adaugati la functia asta sa se calculeze si eroarea si tot
+function averageB() {
+  let data = document.querySelectorAll("#myTableData td");
+
+  // Valorile a lui B din tabel se vor stoca in cleanData
+  let cleanData = [];
+  for (let i = 0; i < data.length; i++) {
+    if (!((i + 1) % 6)) {
+      cleanData.push(parseFloat(data[i].innerHTML));
+    }
+  }
+
+  // Rezultatul nu numai decat sa fie un paragraf, puteti sa improvizati, mai creati un tabel sau ceva
+  let avg = cleanData.reduce((p, c) => p + c, 0) / cleanData.length;
+  document.getElementById("outputText").innerHTML =
+    "Current data in the system: <strong>B = " + avg + "</strong>";
 }
