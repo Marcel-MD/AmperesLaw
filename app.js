@@ -28,6 +28,7 @@ function deleteRow(obj) {
   var index = obj.parentNode.parentNode.rowIndex;
   var table = document.getElementById("myTableData");
   table.deleteRow(index);
+  averageB();
 }
 
 // Mai adaugati la functia asta sa se calculeze si eroarea si tot
