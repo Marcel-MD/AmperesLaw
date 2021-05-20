@@ -1,11 +1,11 @@
 function addRow() {
   var myNr = document.getElementById("Nr");
-  var myForce = document.getElementById("dF").value;
+  var myMass = document.getElementById("m").value;
   var myIntensity = document.getElementById("I").value;
   var myLength = document.getElementById("dl").value;
   var table = document.getElementById("myTableData");
 
-  var myB = myForce / (myIntensity * myLength);
+  var myB = (myMass * 9.8) / (myIntensity * myLength);
 
   if (!isNaN(myB)) {
     var rowCount = table.rows.length;
@@ -14,7 +14,7 @@ function addRow() {
     row.insertCell(0).innerHTML =
       '<input class="button" type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
     row.insertCell(1).innerHTML = myNr.value;
-    row.insertCell(2).innerHTML = myForce;
+    row.insertCell(2).innerHTML = myMass;
     row.insertCell(3).innerHTML = myIntensity;
     row.insertCell(4).innerHTML = myLength;
     row.insertCell(5).innerHTML = myB;
@@ -45,6 +45,19 @@ function averageB() {
 
   // Rezultatul nu numai decat sa fie un paragraf, puteti sa improvizati, mai creati un tabel sau ceva
   let avg = cleanData.reduce((p, c) => p + c, 0) / cleanData.length;
+
+  let err = [];
+  cleanData.forEach((B) => {
+    err.push(Math.abs(B - avg));
+  });
+
+  let avgErr = err.reduce((p, c) => p + c, 0) / err.length;
+
   document.getElementById("outputText").innerHTML =
-    "Current data in the system: <strong>B = " + avg + "</strong>";
+    "Current data in the system: <strong>B = " +
+    avg.toFixed(10) +
+    " , error = " +
+    (avgErr * 100).toFixed(10) +
+    "%" +
+    "</strong>";
 }
