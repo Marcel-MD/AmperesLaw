@@ -7,7 +7,7 @@ function addRow() {
 
   var myB = (myMass * 9.8) / (myIntensity * myLength);
 
-  if (!isNaN(myB)) {
+  if (!isNaN(myB) && (myIntensity > 0) && (myLength > 0) && (myMass > 0)) {
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
 
